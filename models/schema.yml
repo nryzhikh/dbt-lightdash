@@ -7,15 +7,3 @@ models:
       - name: ots_all_value
         description: "Sum of all OTS metrics."
         
-  - name: econometrics_all
-    description: "Calculated blogger OTS per ID."
-    columns:
-      - name: id
-        description: "Unique identifier."
-        tests:
-          - not_null
-          - unique
-      - name: channel
-        meta:
-          dimension:
-            type: string
