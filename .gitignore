@@ -1,4 +1,9 @@
-
+# dbt
+profiles.yml
 target/
 dbt_packages/
 logs/
+
+# Excel files
+scripts/excel_to_sql/files/*.xlsx
+scripts/excel_to_sql/files/*.xls
