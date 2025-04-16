@@ -1,7 +1,7 @@
 version: 2
 models:
-- name: эконометрика
-  description: Эконометрика 2020-2024
+- name: econometrics
+  description: Data from econometrics table
   columns:
   - name: end_date
     description: character varying column
@@ -9,6 +9,9 @@ models:
   - name: клики
     description: double precision column
     tests: []
+    meta:
+      dimension:
+        type: number
   - name: _sheet
     description: character varying column
     tests: []
@@ -33,6 +36,9 @@ models:
   - name: показы
     description: double precision column
     tests: []
+    meta:
+      dimension:
+        type: number
   - name: channel
     description: character varying column
     tests: []
@@ -42,6 +48,9 @@ models:
   - name: прослушивания
     description: double precision column
     tests: []
+    meta:
+      dimension:
+        type: number
   - name: campaign
     description: character varying column
     tests: []
@@ -51,9 +60,15 @@ models:
   - name: net_rur
     description: double precision column
     tests: []
+    meta:
+      dimension:
+        type: number
   - name: ots_all_18
     description: double precision column
     tests: []
+    meta:
+      dimension:
+        type: number
   - name: brand
     description: character varying column
     tests: []
@@ -63,75 +78,135 @@ models:
   - name: unmatched__количество бизнес-kpi
     description: double precision column
     tests: []
+    meta:
+      dimension:
+        type: number
   - name: бюджет
     description: double precision column
     tests: []
+    meta:
+      dimension:
+        type: number
   - name: просмотры
     description: double precision column
     tests: []
+    meta:
+      dimension:
+        type: number
   - name: визиты
     description: double precision column
     tests: []
+    meta:
+      dimension:
+        type: number
   - name: прочтения
     description: double precision column
     tests: []
+    meta:
+      dimension:
+        type: number
   - name: охват
     description: double precision column
     tests: []
+    meta:
+      dimension:
+        type: number
   - name: колво_размещений
     description: double precision column
     tests: []
+    meta:
+      dimension:
+        type: number
   - name: week
     description: character varying column
     tests: []
   - name: отправлено
     description: double precision column
     tests: []
+    meta:
+      dimension:
+        type: number
   - name: ots_all_25_45_inc_3_5
     description: double precision column
     tests: []
+    meta:
+      dimension:
+        type: number
   - name: ots_all_25_55_inc_3_5
     description: double precision column
     tests: []
+    meta:
+      dimension:
+        type: number
   - name: unmatched__заявки
     description: double precision column
     tests: []
+    meta:
+      dimension:
+        type: number
   - name: дочитывания
     description: double precision column
     tests: []
+    meta:
+      dimension:
+        type: number
   - name: отs
     description: double precision column
     tests: []
+    meta:
+      dimension:
+        type: number
   - name: dau
     description: double precision column
     tests: []
+    meta:
+      dimension:
+        type: number
   - name: unmatched_dim_000
     description: character varying column
     tests: []
   - name: количество_лидов
     description: double precision column
     tests: []
+    meta:
+      dimension:
+        type: number
   - name: unmatched_dim_001
     description: character varying column
     tests: []
   - name: ots_all_25_55
     description: double precision column
     tests: []
+    meta:
+      dimension:
+        type: number
   - name: ots_all_25_54_bc
     description: double precision column
     tests: []
+    meta:
+      dimension:
+        type: number
   - name: ots_all_25_58_inc_3_5
     description: double precision column
     tests: []
+    meta:
+      dimension:
+        type: number
   - name: заявки
     description: double precision column
     tests: []
+    meta:
+      dimension:
+        type: number
   - name: unmatched_dim_002
     description: character varying column
     tests: []
   - name: ots_all_50_65
     description: double precision column
     tests: []
+    meta:
+      dimension:
+        type: number
   - name: unmatched_dim_003
     description: character varying column
     tests: []
@@ -144,15 +219,27 @@ models:
   - name: otc_колво_подписчиков_канала
     description: double precision column
     tests: []
+    meta:
+      dimension:
+        type: number
   - name: unmatched__
     description: double precision column
     tests: []
+    meta:
+      dimension:
+        type: number
   - name: установки
     description: double precision column
     tests: []
+    meta:
+      dimension:
+        type: number
   - name: ots_all_25_55_bc
     description: double precision column
     tests: []
+    meta:
+      dimension:
+        type: number
   - name: unmatched_dim_006
     description: character varying column
     tests: []

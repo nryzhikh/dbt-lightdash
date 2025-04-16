@@ -1,7 +1,7 @@
 version: 2
 models:
-- name: эконометрика_2025
-  description: Эконометрика 2025"
+- name: econometrics_2025
+  description: Data from econometrics_2025 table
   columns:
   - name: id
     description: uuid column
@@ -64,9 +64,6 @@ models:
     tests: []
   - name: ots_all_30_60_c
     description: character varying column
-    meta:
-      dimension:
-        type: number
     tests: []
   - name: ots_all_25_54_bc
     description: character varying column

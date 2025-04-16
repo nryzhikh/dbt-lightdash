@@ -25,6 +25,14 @@ def get_table_schema(conn, table_name):
             'tests': []
         }
         
+        # Add dimension type for numeric columns
+        if row[1] in ['integer', 'bigint', 'numeric', 'decimal', 'real', 'double precision']:
+            column['meta'] = {
+                'dimension': {
+                    'type': 'number'
+                }
+            }
+        
         if row[2] == 'NO':
             column['tests'].append('not_null')
             
