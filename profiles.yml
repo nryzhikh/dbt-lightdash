@@ -1,0 +1,12 @@
+dbt-lightdash-econometrics:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: 45.9.27.162
+      user: root
+      password: Ozz1TLeojwdaG0mg
+      port: 5432
+      dbname: econometrics
+      schema: public
+      sslmode: disable 
