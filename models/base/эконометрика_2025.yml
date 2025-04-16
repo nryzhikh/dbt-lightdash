@@ -1,7 +1,7 @@
 version: 2
 
 models:
-- name: econometrics_2025
+- name: эконометрика_2025
   description: Data from econometrics_2025 table
   columns:
   - name: id

@@ -1,7 +1,7 @@
 version: 2
 
 models:
-- name: econometrics
+- name: эконометрика
   description: Data from econometrics table
   columns:
   - name: end_date
