@@ -31,6 +31,20 @@ def get_table_schema(conn, table_name):
                     'type': 'number'
                 }
             }
+        # Add dimension type for date columns
+        elif row[1] in ['date', 'timestamp']:
+            column['meta'] = {
+                'dimension': {
+                    'type': 'date'
+                }
+            }
+
+        else:
+            column['meta'] = {
+                'dimension': {
+                    'type': 'string'
+                }
+            }   
             
         columns.append(column)
     
@@ -46,7 +60,13 @@ def generate_yaml(table):
         }]
     }
     
-    return yaml.dump(schema, sort_keys=False, allow_unicode=True, default_flow_style=False)
+    # Convert to YAML string
+    yaml_str = yaml.dump(schema, sort_keys=False, allow_unicode=True, default_flow_style=False)
+    
+    # Add a newline after version
+    yaml_str = yaml_str.replace('version: 2\n', 'version: 2\n\n')
+    
+    return yaml_str
 
 def main():
     # Database connection parameters

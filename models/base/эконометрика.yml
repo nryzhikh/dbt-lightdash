@@ -6,6 +6,9 @@ models:
   columns:
   - name: end_date
     description: character varying
+    meta:
+      dimension:
+        type: string
   - name: клики
     description: double precision
     meta:
@@ -13,18 +16,39 @@ models:
         type: number
   - name: _sheet
     description: character varying
+    meta:
+      dimension:
+        type: string
   - name: _path_level_0
     description: character varying
+    meta:
+      dimension:
+        type: string
   - name: _file_name
     description: character varying
+    meta:
+      dimension:
+        type: string
   - name: _full_path
     description: character varying
+    meta:
+      dimension:
+        type: string
   - name: start_date
     description: character varying
+    meta:
+      dimension:
+        type: string
   - name: _path_level_1
     description: character varying
+    meta:
+      dimension:
+        type: string
   - name: bucket
     description: character varying
+    meta:
+      dimension:
+        type: string
   - name: показы
     description: double precision
     meta:
@@ -32,8 +56,14 @@ models:
         type: number
   - name: channel
     description: character varying
+    meta:
+      dimension:
+        type: string
   - name: ta
     description: character varying
+    meta:
+      dimension:
+        type: string
   - name: прослушивания
     description: double precision
     meta:
@@ -41,8 +71,14 @@ models:
         type: number
   - name: campaign
     description: character varying
+    meta:
+      dimension:
+        type: string
   - name: ответственный
     description: character varying
+    meta:
+      dimension:
+        type: string
   - name: net_rur
     description: double precision
     meta:
@@ -55,8 +91,14 @@ models:
         type: number
   - name: brand
     description: character varying
+    meta:
+      dimension:
+        type: string
   - name: product
     description: character varying
+    meta:
+      dimension:
+        type: string
   - name: unmatched__количество бизнес-kpi
     description: double precision
     meta:
@@ -94,6 +136,9 @@ models:
         type: number
   - name: week
     description: character varying
+    meta:
+      dimension:
+        type: string
   - name: отправлено
     description: double precision
     meta:
@@ -131,6 +176,9 @@ models:
         type: number
   - name: unmatched_dim_000
     description: character varying
+    meta:
+      dimension:
+        type: string
   - name: количество_лидов
     description: double precision
     meta:
@@ -138,6 +186,9 @@ models:
         type: number
   - name: unmatched_dim_001
     description: character varying
+    meta:
+      dimension:
+        type: string
   - name: ots_all_25_55
     description: double precision
     meta:
@@ -160,6 +211,9 @@ models:
         type: number
   - name: unmatched_dim_002
     description: character varying
+    meta:
+      dimension:
+        type: string
   - name: ots_all_50_65
     description: double precision
     meta:
@@ -167,10 +221,19 @@ models:
         type: number
   - name: unmatched_dim_003
     description: character varying
+    meta:
+      dimension:
+        type: string
   - name: unmatched_dim_004
     description: character varying
+    meta:
+      dimension:
+        type: string
   - name: unmatched_dim_005
     description: character varying
+    meta:
+      dimension:
+        type: string
   - name: otc_колво_подписчиков_канала
     description: double precision
     meta:
@@ -193,3 +256,6 @@ models:
         type: number
   - name: unmatched_dim_006
     description: character varying
+    meta:
+      dimension:
+        type: string
