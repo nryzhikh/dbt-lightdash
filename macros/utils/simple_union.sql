@@ -1,73 +1,75 @@
-{% macro simple_union(table1, table2, date_mapping={}) %}
-    {% set table1_columns = adapter.get_columns_in_relation(source(table1.split('.')[0], table1.split('.')[1])) %}
-    {% set table2_columns = adapter.get_columns_in_relation(source(table2.split('.')[0], table2.split('.')[1])) %}
+{% macro simple_union(tables, date_mapping={}) %}
+    {# Get all columns from all tables #}
+    {% set all_columns = {} %}
+    {% set all_tables = [] %}
     
-    {% set table1_col_names = table1_columns | map(attribute='name') | list %}
-    {% set table2_col_names = table2_columns | map(attribute='name') | list %}
-    
-    {% set common_columns = [] %}
-    {% set table1_only_columns = [] %}
-    {% set table2_only_columns = [] %}
-    
-    {# Handle date mapping columns separately #}
-    {% set mapped_columns = date_mapping.keys() | list %}
-    {% set mapped_values = date_mapping.values() | list %}
-    
-    {% for col in table1_col_names %}
-        {% if col in table2_col_names and col not in mapped_columns and col not in mapped_values %}
-            {% do common_columns.append(col) %}
-        {% elif col not in mapped_columns and col not in mapped_values %}
-            {% do table1_only_columns.append(col) %}
-        {% endif %}
+    {% for table in tables %}
+        {% set table_parts = table.split('.') %}
+        {% set source_name = table_parts[0] %}
+        {% set table_name = table_parts[1] %}
+        {% set table_columns = adapter.get_columns_in_relation(source(source_name, table_name)) %}
+        {% set table_col_names = table_columns | map(attribute='name') | list %}
+        {% do all_columns.update({table: table_col_names}) %}
+        {% do all_tables.append(table) %}
     {% endfor %}
     
-    {% for col in table2_col_names %}
-        {% if col not in table1_col_names and col not in mapped_columns and col not in mapped_values %}
-            {% do table2_only_columns.append(col) %}
-        {% endif %}
+    {# Get all unique column names across all tables #}
+    {% set all_unique_columns = [] %}
+    {% for table in all_tables %}
+        {% for col in all_columns[table] %}
+            {% if col not in all_unique_columns and col not in date_mapping.values() %}
+                {% do all_unique_columns.append(col) %}
+            {% endif %}
+        {% endfor %}
     {% endfor %}
     
-    SELECT
-        {% for col in common_columns %}
-            CAST("{{ col }}" AS TEXT) as "{{ col }}",
-        {% endfor %}
-        {% for col in table1_only_columns %}
-            CAST("{{ col }}" AS TEXT) as "{{ col }}",
-        {% endfor %}
-        {% for col in table2_only_columns %}
-            NULL::TEXT as "{{ col }}",
-        {% endfor %}
-        {% for source_col, target_col in date_mapping.items() %}
-            CASE 
-                WHEN "{{ source_col }}" ~ '^\d+$' THEN 
-                    (DATE '1899-12-30' + CAST("{{ source_col }}" AS INTEGER))::TEXT
-                ELSE 
-                    CAST("{{ source_col }}" AS TEXT)
-            END as "{{ target_col }}",
-        {% endfor %}
-        '{{ table1 }}' as source_table
-    FROM {{ source(table1.split('.')[0], table1.split('.')[1]) }}
-    
-    UNION ALL
-    
-    SELECT
-        {% for col in common_columns %}
-            CAST("{{ col }}" AS TEXT) as "{{ col }}",
-        {% endfor %}
-        {% for col in table1_only_columns %}
-            NULL::TEXT as "{{ col }}",
-        {% endfor %}
-        {% for col in table2_only_columns %}
-            CAST("{{ col }}" AS TEXT) as "{{ col }}",
-        {% endfor %}
-        {% for source_col, target_col in date_mapping.items() %}
-            CASE 
-                WHEN "{{ target_col }}" ~ '^\d+$' THEN 
-                    (DATE '1899-12-30' + CAST("{{ target_col }}" AS INTEGER))::TEXT
-                ELSE 
-                    CAST("{{ target_col }}" AS TEXT)
-            END as "{{ target_col }}",
-        {% endfor %}
-        '{{ table2 }}' as source_table
-    FROM {{ source(table2.split('.')[0], table2.split('.')[1]) }}
+    {# Generate the UNION ALL query for each table #}
+    {% for table in all_tables %}
+        {% if not loop.first %}
+            UNION ALL
+        {% endif %}
+        
+        {% set table_parts = table.split('.') %}
+        {% set source_name = table_parts[0] %}
+        {% set table_name = table_parts[1] %}
+        
+        SELECT
+            {# Handle all columns, including missing ones #}
+            {% for col in all_unique_columns %}
+                {% if col in all_columns[table] %}
+                    {% if col in date_mapping.keys() %}
+                        {# If this is a source column for date mapping, use the target column if it exists #}
+                        {% set target_col = date_mapping[col] %}
+                        {% if target_col in all_columns[table] %}
+                            CAST("{{ target_col }}" AS TEXT) as "{{ col }}",
+                        {% else %}
+                            CAST("{{ col }}" AS TEXT) as "{{ col }}",
+                        {% endif %}
+                    {% else %}
+                        CAST("{{ col }}" AS TEXT) as "{{ col }}",
+                    {% endif %}
+                {% else %}
+                    NULL::TEXT as "{{ col }}",
+                {% endif %}
+            {% endfor %}
+            
+            {# Date mapping columns #}
+            {% for source_col, target_col in date_mapping.items() %}
+                {% if source_col in all_columns[table] %}
+                    CASE 
+                        WHEN CAST("{{ source_col }}" AS TEXT) ~ '^\d+$' THEN 
+                            (DATE '1899-12-30' + CAST(CAST("{{ source_col }}" AS TEXT) AS INTEGER))::TEXT
+                        ELSE 
+                            CAST("{{ source_col }}" AS TEXT)
+                    END as "{{ target_col }}",
+                {% elif target_col in all_columns[table] %}
+                    CAST("{{ target_col }}" AS TEXT) as "{{ target_col }}",
+                {% else %}
+                    NULL::TEXT as "{{ target_col }}",
+                {% endif %}
+            {% endfor %}
+            
+            '{{ table }}' as source_table
+        FROM {{ source(source_name, table_name) }}
+    {% endfor %}
 {% endmacro %} 

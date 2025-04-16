@@ -9,3 +9,7 @@ sources:
         description: "Base econometrics data table"
       - name: econometrics_2025
         description: "2025 econometrics data table" 
+      - name: sber_national_tv_20200101_20250119
+        description: "Sber National TV data table"
+      - name: sber_all_media_20230101_20241231
+        description: "Sber All Media data table"
