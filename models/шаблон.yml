@@ -4,7 +4,7 @@ models:
   - name: шаблон
     description: "Показатели для шаблона из общей эконометрики"
     columns:
-      - name: start_date
+      - name: week
         description: "Week of the campaign"
         meta:
           dimension:

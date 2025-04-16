@@ -9,6 +9,7 @@ SELECT
         COALESCE(CAST(ots_all_25_55_bc AS NUMERIC), 0) +
         COALESCE(CAST(ots_all_25_55_inc_3_5 AS NUMERIC), 0) +
         COALESCE(CAST(ots_all_25_58_inc_3_5 AS NUMERIC), 0) +
-        COALESCE(CAST(ots_all_50_65 AS NUMERIC), 0)
+        COALESCE(CAST(ots_all_50_65 AS NUMERIC), 0) +
+        COALESCE(CAST(отs AS NUMERIC), 0)
     ) AS ots_all
-FROM {{ ref('эконометрика_2020-2024') }}
+FROM {{ ref('эконометрика_общая') }}

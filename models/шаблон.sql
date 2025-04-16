@@ -1,5 +1,5 @@
 SELECT
-    start_date,
+    week,
     {{ roundv(tv('o.ots_all'), 1000) }} AS тв_1000_ots,
     {{ roundv(olv('показы'), 1000) }} AS олв_1000_показов,
     {{ roundv(audio('показы'), 1000) }} AS аудио_1000_показов,
@@ -21,8 +21,8 @@ SELECT
     {{ roundv(performance('показы', ['ремаркетинг', 'remarketing']), 1000) }} AS перформанс_ремаркетинг_1000_показов,
     {{ roundv(performance('показы', ['регион', 'region']), 1000) }} AS региональный_перф_1000_показов
 FROM
-    {{ ref('эконометрика_2020-2024') }} b
+    {{ ref('эконометрика_общая') }} b
 LEFT JOIN
-        {{ ref('ots_all') }} o ON b.id::text = o.id::text
+    {{ ref('ots_all') }} o ON CAST(b.id AS TEXT) = o.id
 GROUP BY
-    start_date
+    week
