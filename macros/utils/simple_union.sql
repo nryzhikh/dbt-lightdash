@@ -11,17 +11,18 @@
     
     {# Handle date mapping columns separately #}
     {% set mapped_columns = date_mapping.keys() | list %}
+    {% set mapped_values = date_mapping.values() | list %}
     
     {% for col in table1_col_names %}
-        {% if col in table2_col_names and col not in mapped_columns %}
+        {% if col in table2_col_names and col not in mapped_columns and col not in mapped_values %}
             {% do common_columns.append(col) %}
-        {% elif col not in mapped_columns %}
+        {% elif col not in mapped_columns and col not in mapped_values %}
             {% do table1_only_columns.append(col) %}
         {% endif %}
     {% endfor %}
     
     {% for col in table2_col_names %}
-        {% if col not in table1_col_names and col not in mapped_columns %}
+        {% if col not in table1_col_names and col not in mapped_columns and col not in mapped_values %}
             {% do table2_only_columns.append(col) %}
         {% endif %}
     {% endfor %}
@@ -42,7 +43,7 @@
                     (DATE '1899-12-30' + CAST("{{ source_col }}" AS INTEGER))::TEXT
                 ELSE 
                     CAST("{{ source_col }}" AS TEXT)
-            END as "{{ source_col }}",
+            END as "{{ target_col }}",
         {% endfor %}
         '{{ table1 }}' as source_table
     FROM {{ source(table1.split('.')[0], table1.split('.')[1]) }}
@@ -65,7 +66,7 @@
                     (DATE '1899-12-30' + CAST("{{ target_col }}" AS INTEGER))::TEXT
                 ELSE 
                     CAST("{{ target_col }}" AS TEXT)
-            END as "{{ source_col }}",
+            END as "{{ target_col }}",
         {% endfor %}
         '{{ table2 }}' as source_table
     FROM {{ source(table2.split('.')[0], table2.split('.')[1]) }}

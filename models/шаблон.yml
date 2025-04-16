@@ -14,6 +14,9 @@ models:
         meta:
           dimension:
             type: number
+          metrics:
+            total_тв_1000_ots:
+              type: sum
       - name: олв_1000_показов
         description: "OLV impressions per 1000"
         meta:
