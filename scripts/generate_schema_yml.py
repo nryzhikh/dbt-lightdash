@@ -46,7 +46,7 @@ def generate_yaml(table):
         }]
     }
     
-    return yaml.dump(schema, sort_keys=False, allow_unicode=True)
+    return yaml.dump(schema, sort_keys=False, allow_unicode=True, default_flow_style=False)
 
 def main():
     # Database connection parameters
@@ -62,12 +62,13 @@ def main():
     conn = psycopg2.connect(**conn_params)
     
     # Create models directory if it doesn't exist
-    os.makedirs('models', exist_ok=True)
+    os.makedirs('models/base', exist_ok=True)
     
     # Get schema for each table and generate separate YAML files
     tables = ['econometrics', 'econometrics_2025']
-    file_name = ['эконометрика', 'эконометрика_2025']
-    for table_name, file_name in zip(tables, file_name):
+    file_names = ['эконометрика', 'эконометрика_2025']
+    
+    for table_name, file_name in zip(tables, file_names):
         table = {
             'name': table_name,
             'columns': get_table_schema(conn, table_name)
@@ -77,7 +78,7 @@ def main():
         yaml_content = generate_yaml(table)
         
         # Write to file
-        with open(f'models/base/{file_name}.yml', 'w') as f:
+        with open(f'models/base/{file_name}.yml', 'w', encoding='utf-8') as f:
             f.write(yaml_content)
     
     conn.close()
