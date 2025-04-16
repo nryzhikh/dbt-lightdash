@@ -19,16 +19,3 @@ models:
         meta:
           dimension:
             type: string
-
-  - name: vklady
-    description: "Calculated blogger OTS per ID."
-    columns:
-      - name: id
-        description: "Unique identifier."
-        tests:
-          - not_null
-          - unique
-      - name: channel
-        meta:
-          dimension:
-            type: string
