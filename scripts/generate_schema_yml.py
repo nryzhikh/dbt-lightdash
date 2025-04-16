@@ -21,8 +21,7 @@ def get_table_schema(conn, table_name):
     for row in cur.fetchall():
         column = {
             'name': row[0],
-            'description': f"{row[1]} column",
-            'tests': []
+            'description': row[1]
         }
         
         # Add dimension type for numeric columns
@@ -32,12 +31,6 @@ def get_table_schema(conn, table_name):
                     'type': 'number'
                 }
             }
-        
-        if row[2] == 'NO':
-            column['tests'].append('not_null')
-            
-        if 'id' in row[0].lower():
-            column['tests'].append('unique')
             
         columns.append(column)
     
@@ -73,7 +66,8 @@ def main():
     
     # Get schema for each table and generate separate YAML files
     tables = ['econometrics', 'econometrics_2025']
-    for table_name in tables:
+    file_name = ['эконометрика', 'эконометрика_2025']
+    for table_name, file_name in zip(tables, file_name):
         table = {
             'name': table_name,
             'columns': get_table_schema(conn, table_name)
@@ -83,7 +77,7 @@ def main():
         yaml_content = generate_yaml(table)
         
         # Write to file
-        with open(f'models/{table_name}.yml', 'w') as f:
+        with open(f'models/base/{file_name}.yml', 'w') as f:
             f.write(yaml_content)
     
     conn.close()
