@@ -1,0 +1,13 @@
+version: '3'
+
+vars:
+  TIMESTAMP:
+    sh: date "+%Y-%m-%d %H:%M:%S" 
+
+tasks:
+  git:
+    cmds:
+      - git add .
+      - git commit -m "auto commit"
+      - git push
+

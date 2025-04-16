@@ -4,8 +4,8 @@ econometrics:
     dev:
       type: postgres
       host: 45.9.27.162
-      user: "{{ env_var('DB_USER') }}"
-      password: "{{ env_var('DB_PASSWORD') }}"
+      user: "root"
+      password: "Ozz1TLeojwdaG0mg"
       port: 5432
       dbname: econometrics
       schema: public

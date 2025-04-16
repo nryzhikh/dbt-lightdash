@@ -35,19 +35,15 @@ def get_table_schema(conn, table_name):
     
     return columns
 
-def generate_yaml(tables):
+def generate_yaml(table):
     schema = {
         'version': 2,
-        'models': []
-    }
-    
-    for table in tables:
-        model = {
+        'models': [{
             'name': table['name'],
             'description': f"Data from {table['name']} table",
             'columns': table['columns']
-        }
-        schema['models'].append(model)
+        }]
+    }
     
     return yaml.dump(schema, sort_keys=False, allow_unicode=True)
 
@@ -64,24 +60,23 @@ def main():
     # Connect to the database
     conn = psycopg2.connect(**conn_params)
     
-    # Get schema for both tables
-    tables = [
-        {
-            'name': 'econometrics',
-            'columns': get_table_schema(conn, 'econometrics')
-        },
-        {
-            'name': 'econometrics_2025',
-            'columns': get_table_schema(conn, 'econometrics_2025')
+    # Create models directory if it doesn't exist
+    os.makedirs('models', exist_ok=True)
+    
+    # Get schema for each table and generate separate YAML files
+    tables = ['econometrics', 'econometrics_2025']
+    for table_name in tables:
+        table = {
+            'name': table_name,
+            'columns': get_table_schema(conn, table_name)
         }
-    ]
-    
-    # Generate YAML
-    yaml_content = generate_yaml(tables)
-    
-    # Write to file
-    with open('models/schema.yml', 'w') as f:
-        f.write(yaml_content)
+        
+        # Generate YAML
+        yaml_content = generate_yaml(table)
+        
+        # Write to file
+        with open(f'models/{table_name}.yml', 'w') as f:
+            f.write(yaml_content)
     
     conn.close()
 

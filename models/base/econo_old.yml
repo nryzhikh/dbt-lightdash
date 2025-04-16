@@ -1,0 +1,158 @@
+version: 2
+models:
+- name: econometrics
+  description: Data from econometrics table
+  columns:
+  - name: end_date
+    description: character varying column
+    tests: []
+  - name: клики
+    description: double precision column
+    tests: []
+  - name: _sheet
+    description: character varying column
+    tests: []
+  - name: _path_level_0
+    description: character varying column
+    tests: []
+  - name: _file_name
+    description: character varying column
+    tests: []
+  - name: _full_path
+    description: character varying column
+    tests: []
+  - name: start_date
+    description: character varying column
+    tests: []
+  - name: _path_level_1
+    description: character varying column
+    tests: []
+  - name: bucket
+    description: character varying column
+    tests: []
+  - name: показы
+    description: double precision column
+    tests: []
+  - name: channel
+    description: character varying column
+    tests: []
+  - name: ta
+    description: character varying column
+    tests: []
+  - name: прослушивания
+    description: double precision column
+    tests: []
+  - name: campaign
+    description: character varying column
+    tests: []
+  - name: ответственный
+    description: character varying column
+    tests: []
+  - name: net_rur
+    description: double precision column
+    tests: []
+  - name: ots_all_18
+    description: double precision column
+    tests: []
+  - name: brand
+    description: character varying column
+    tests: []
+  - name: product
+    description: character varying column
+    tests: []
+  - name: unmatched__количество бизнес-kpi
+    description: double precision column
+    tests: []
+  - name: бюджет
+    description: double precision column
+    tests: []
+  - name: просмотры
+    description: double precision column
+    tests: []
+  - name: визиты
+    description: double precision column
+    tests: []
+  - name: прочтения
+    description: double precision column
+    tests: []
+  - name: охват
+    description: double precision column
+    tests: []
+  - name: колво_размещений
+    description: double precision column
+    tests: []
+  - name: week
+    description: character varying column
+    tests: []
+  - name: отправлено
+    description: double precision column
+    tests: []
+  - name: ots_all_25_45_inc_3_5
+    description: double precision column
+    tests: []
+  - name: ots_all_25_55_inc_3_5
+    description: double precision column
+    tests: []
+  - name: unmatched__заявки
+    description: double precision column
+    tests: []
+  - name: дочитывания
+    description: double precision column
+    tests: []
+  - name: отs
+    description: double precision column
+    tests: []
+  - name: dau
+    description: double precision column
+    tests: []
+  - name: unmatched_dim_000
+    description: character varying column
+    tests: []
+  - name: количество_лидов
+    description: double precision column
+    tests: []
+  - name: unmatched_dim_001
+    description: character varying column
+    tests: []
+  - name: ots_all_25_55
+    description: double precision column
+    tests: []
+  - name: ots_all_25_54_bc
+    description: double precision column
+    tests: []
+  - name: ots_all_25_58_inc_3_5
+    description: double precision column
+    tests: []
+  - name: заявки
+    description: double precision column
+    tests: []
+  - name: unmatched_dim_002
+    description: character varying column
+    tests: []
+  - name: ots_all_50_65
+    description: double precision column
+    tests: []
+  - name: unmatched_dim_003
+    description: character varying column
+    tests: []
+  - name: unmatched_dim_004
+    description: character varying column
+    tests: []
+  - name: unmatched_dim_005
+    description: character varying column
+    tests: []
+  - name: otc_колво_подписчиков_канала
+    description: double precision column
+    tests: []
+  - name: unmatched__
+    description: double precision column
+    tests: []
+  - name: установки
+    description: double precision column
+    tests: []
+  - name: ots_all_25_55_bc
+    description: double precision column
+    tests: []
+  - name: unmatched_dim_006
+    description: character varying column
+    tests: []

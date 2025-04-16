@@ -1,0 +1,173 @@
+version: 2
+models:
+- name: econo_2025
+  description: Эконометрика 2025"
+  label: "econo_2025"
+  columns:
+  - name: id
+    description: uuid column
+    tests:
+    - not_null
+    - unique
+  - name: media
+    description: character varying column
+    tests: []
+  - name: ots_all_25_60_c
+    description: character varying column
+    tests: []
+  - name: ots_all_25_55_bc
+    description: character varying column
+    tests: []
+  - name: ots_all_25_55_inc_3_5
+    description: character varying column
+    tests: []
+  - name: ots_all_25_45_inc_3_5
+    description: character varying column
+    tests: []
+  - name: ots_all_50_65
+    description: character varying column
+    tests: []
+  - name: bucket
+    description: character varying column
+    tests: []
+  - name: _path_level_0
+    description: character varying column
+    tests: []
+  - name: ots_all_18
+    description: character varying column
+    tests: []
+  - name: subproduct
+    description: character varying column
+    tests: []
+  - name: _sheet
+    description: character varying column
+    tests: []
+  - name: _file_name
+    description: character varying column
+    tests: []
+  - name: campaign
+    description: character varying column
+    tests: []
+  - name: category
+    description: character varying column
+    tests: []
+  - name: net_rur
+    description: character varying column
+    tests: []
+  - name: ots_all_25_55_c
+    description: character varying column
+    tests: []
+  - name: subscription
+    description: character varying column
+    tests: []
+  - name: status
+    description: character varying column
+    tests: []
+  - name: ots_all_30_60_c
+    description: character varying column
+    tests: []
+  - name: ots_all_25_54_bc
+    description: character varying column
+    tests: []
+  - name: product2
+    description: character varying column
+    tests: []
+  - name: week
+    description: character varying column
+    tests: []
+  - name: channel
+    description: character varying column
+    tests: []
+  - name: ots_all_25_58_inc_3_5
+    description: character varying column
+    tests: []
+  - name: card_name
+    description: character varying column
+    tests: []
+  - name: segment
+    description: character varying column
+    tests: []
+  - name: _full_path
+    description: character varying column
+    tests: []
+  - name: ots_all_25_55
+    description: character varying column
+    tests: []
+  - name: ots_all_25_60
+    description: character varying column
+    tests: []
+  - name: product
+    description: character varying column
+    tests: []
+  - name: block
+    description: character varying column
+    tests: []
+  - name: boss
+    description: character varying column
+    tests: []
+  - name: brand
+    description: character varying column
+    tests: []
+  - name: age
+    description: character varying column
+    tests: []
+  - name: показы
+    description: character varying column
+    tests: []
+  - name: клики
+    description: character varying column
+    tests: []
+  - name: просмотры
+    description: character varying column
+    tests: []
+  - name: бюджет
+    description: character varying column
+    tests: []
+  - name: ta
+    description: character varying column
+    tests: []
+  - name: установки
+    description: character varying column
+    tests: []
+  - name: formatplacement
+    description: character varying column
+    tests: []
+  - name: количество_лидов
+    description: character varying column
+    tests: []
+  - name: колво_размещений
+    description: character varying column
+    tests: []
+  - name: охват
+    description: character varying column
+    tests: []
+  - name: визиты
+    description: character varying column
+    tests: []
+  - name: прослушивания
+    description: character varying column
+    tests: []
+  - name: отs
+    description: character varying column
+    tests: []
+  - name: прочтения
+    description: character varying column
+    tests: []
+  - name: otc_колво_подписчиков_канала
+    description: character varying column
+    tests: []
+  - name: dau
+    description: character varying column
+    tests: []
+  - name: отправлено
+    description: character varying column
+    tests: []
+  - name: дочитывания
+    description: character varying column
+    tests: []
+  - name: предоставляемы_файлы_2024
+    description: character varying column
+    tests: []
+  - name: условия_фильтрации
+    description: character varying column
+    tests: []
