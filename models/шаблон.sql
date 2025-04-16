@@ -1,5 +1,6 @@
 SELECT
     week,
+    _path_level_1,
     {{ roundv(tv('o.ots_all'), 1000) }} AS тв_1000_ots,
     {{ roundv(olv('показы'), 1000) }} AS олв_1000_показов,
     {{ roundv(audio('показы'), 1000) }} AS аудио_1000_показов,
@@ -25,4 +26,5 @@ FROM
 LEFT JOIN
     {{ ref('ots_all') }} o ON CAST(b.id AS TEXT) = o.id
 GROUP BY
-    week
+    week,
+    _path_level_1

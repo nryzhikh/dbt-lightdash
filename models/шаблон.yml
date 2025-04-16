@@ -4,6 +4,11 @@ models:
   - name: шаблон
     description: "Показатели для шаблона из общей эконометрики"
     columns:
+      - name: _path_level_1
+        description: "Path level 1"
+        meta:
+          dimension:
+            type: string
       - name: week
         description: "Week of the campaign"
         meta:

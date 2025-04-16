@@ -1,10 +1,14 @@
 {% macro seeding(value) %}
-    {% set pattern = 'посев' %}
+    {% set patterns = ['посев'] %}
     SUM(CASE
-        WHEN media ILIKE '%{{ pattern }}%'
-        OR formatplacement ILIKE '%{{ pattern }}%'
-        OR channel ILIKE '%{{ pattern }}%'
-        OR _path_level_1 ILIKE '%{{ pattern }}%'
+        WHEN 
+            {% for pattern in patterns %}
+                media_type ILIKE '%{{ pattern }}%'
+                OR media ILIKE '%{{ pattern }}%'
+                OR formatplacement ILIKE '%{{ pattern }}%'
+                OR channel ILIKE '%{{ pattern }}%'
+                {% if not loop.last %}OR{% endif %}
+            {% endfor %}
         THEN CAST({{ value }} AS NUMERIC)
         ELSE 0 
     END)

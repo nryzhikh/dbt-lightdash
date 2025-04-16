@@ -6,14 +6,16 @@
                 {% if additional_patterns is not none %}
                     {% for additional_pattern in additional_patterns %}
                         (
-                            media ILIKE '%{{ base_pattern }}%' AND media ILIKE '%{{ additional_pattern }}%'
+                            media_type ILIKE '%{{ base_pattern }}%' AND media_type ILIKE '%{{ additional_pattern }}%'
+                            OR media ILIKE '%{{ base_pattern }}%' AND media ILIKE '%{{ additional_pattern }}%'
                             OR formatplacement ILIKE '%{{ base_pattern }}%' AND formatplacement ILIKE '%{{ additional_pattern }}%'
                             OR channel ILIKE '%{{ base_pattern }}%' AND channel ILIKE '%{{ additional_pattern }}%'
                         )
                         {% if not loop.last %}OR{% endif %}
                     {% endfor %}
                 {% else %}
-                    media ILIKE '%{{ base_pattern }}%'
+                    media_type ILIKE '%{{ base_pattern }}%'
+                    OR media ILIKE '%{{ base_pattern }}%'
                     OR formatplacement ILIKE '%{{ base_pattern }}%'
                     OR channel ILIKE '%{{ base_pattern }}%'
                 {% endif %}
@@ -23,5 +25,7 @@
         ELSE 0 
     END)
 {% endmacro %} 
+
+
 
 
