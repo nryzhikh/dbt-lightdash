@@ -65,8 +65,8 @@ models:
   - name: ots_all_30_60_c
     description: character varying column
     meta:
-      metric:
-        type: float
+      dimension:
+        type: number
     tests: []
   - name: ots_all_25_54_bc
     description: character varying column
