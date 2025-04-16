@@ -1,34 +1,329 @@
 version: 2
-
 models:
-  - name: ots_all
-    description: "Sum of all OTS metrics."
-    columns:
-      - name: ots_all_value
-        description: "Sum of all OTS metrics."
-        
-  - name: econometrics_all
-    description: "Calculated blogger OTS per ID."
-    columns:
-      - name: id
-        description: "Unique identifier."
-        tests:
-          - not_null
-          - unique
-      - name: channel
-        meta:
-          dimension:
-            type: string
-
-  - name: vklady
-    description: "Calculated blogger OTS per ID."
-    columns:
-      - name: id
-        description: "Unique identifier."
-        tests:
-          - not_null
-          - unique
-      - name: channel
-        meta:
-          dimension:
-            type: string
+- name: econometrics
+  description: Data from econometrics table
+  columns:
+  - name: channel
+    description: character varying column
+    tests: []
+  - name: _full_path
+    description: character varying column
+    tests: []
+  - name: _file_name
+    description: character varying column
+    tests: []
+  - name: показы
+    description: double precision column
+    tests: []
+  - name: _sheet
+    description: character varying column
+    tests: []
+  - name: _path_level_1
+    description: character varying column
+    tests: []
+  - name: end_date
+    description: character varying column
+    tests: []
+  - name: start_date
+    description: character varying column
+    tests: []
+  - name: bucket
+    description: character varying column
+    tests: []
+  - name: _path_level_0
+    description: character varying column
+    tests: []
+  - name: клики
+    description: double precision column
+    tests: []
+  - name: ta
+    description: character varying column
+    tests: []
+  - name: прослушивания
+    description: double precision column
+    tests: []
+  - name: ответственный
+    description: character varying column
+    tests: []
+  - name: campaign
+    description: character varying column
+    tests: []
+  - name: brand
+    description: character varying column
+    tests: []
+  - name: ots_all_18
+    description: double precision column
+    tests: []
+  - name: net_rur
+    description: double precision column
+    tests: []
+  - name: product
+    description: character varying column
+    tests: []
+  - name: unmatched__количество бизнес-kpi
+    description: double precision column
+    tests: []
+  - name: бюджет
+    description: double precision column
+    tests: []
+  - name: просмотры
+    description: double precision column
+    tests: []
+  - name: визиты
+    description: double precision column
+    tests: []
+  - name: охват
+    description: double precision column
+    tests: []
+  - name: прочтения
+    description: double precision column
+    tests: []
+  - name: колво_размещений
+    description: double precision column
+    tests: []
+  - name: unmatched_dim_000
+    description: character varying column
+    tests: []
+  - name: отправлено
+    description: double precision column
+    tests: []
+  - name: ots_all_25_45_inc_3_5
+    description: double precision column
+    tests: []
+  - name: ots_all_25_55_inc_3_5
+    description: double precision column
+    tests: []
+  - name: дочитывания
+    description: double precision column
+    tests: []
+  - name: unmatched__заявки
+    description: double precision column
+    tests: []
+  - name: отs
+    description: double precision column
+    tests: []
+  - name: dau
+    description: double precision column
+    tests: []
+  - name: количество_лидов
+    description: double precision column
+    tests: []
+  - name: unmatched_dim_001
+    description: character varying column
+    tests: []
+  - name: ots_all_25_55
+    description: double precision column
+    tests: []
+  - name: ots_all_25_54_bc
+    description: double precision column
+    tests: []
+  - name: ots_all_25_58_inc_3_5
+    description: double precision column
+    tests: []
+  - name: заявки
+    description: double precision column
+    tests: []
+  - name: unmatched_dim_002
+    description: character varying column
+    tests: []
+  - name: ots_all_50_65
+    description: double precision column
+    tests: []
+  - name: unmatched_dim_003
+    description: character varying column
+    tests: []
+  - name: unmatched_dim_004
+    description: character varying column
+    tests: []
+  - name: unmatched_dim_005
+    description: character varying column
+    tests: []
+  - name: otc_колво_подписчиков_канала
+    description: double precision column
+    tests: []
+  - name: unmatched__
+    description: double precision column
+    tests: []
+  - name: установки
+    description: double precision column
+    tests: []
+  - name: ots_all_25_55_bc
+    description: double precision column
+    tests: []
+  - name: unmatched_dim_006
+    description: character varying column
+    tests: []
+  - name: id
+    description: uuid column
+    tests:
+    - unique
+- name: econometrics_2025
+  description: Data from econometrics_2025 table
+  columns:
+  - name: id
+    description: uuid column
+    tests:
+    - not_null
+    - unique
+  - name: block
+    description: character varying column
+    tests: []
+  - name: ots_all_25_45_inc_3_5
+    description: character varying column
+    tests: []
+  - name: ots_all_25_55_inc_3_5
+    description: character varying column
+    tests: []
+  - name: media
+    description: character varying column
+    tests: []
+  - name: category
+    description: character varying column
+    tests: []
+  - name: _path_level_0
+    description: character varying column
+    tests: []
+  - name: ots_all_25_54_bc
+    description: character varying column
+    tests: []
+  - name: ots_all_30_60_c
+    description: character varying column
+    tests: []
+  - name: ots_all_18
+    description: character varying column
+    tests: []
+  - name: ots_all_25_55
+    description: character varying column
+    tests: []
+  - name: bucket
+    description: character varying column
+    tests: []
+  - name: ots_all_50_65
+    description: character varying column
+    tests: []
+  - name: _sheet
+    description: character varying column
+    tests: []
+  - name: status
+    description: character varying column
+    tests: []
+  - name: _file_name
+    description: character varying column
+    tests: []
+  - name: brand
+    description: character varying column
+    tests: []
+  - name: ots_all_25_55_bc
+    description: character varying column
+    tests: []
+  - name: channel
+    description: character varying column
+    tests: []
+  - name: _full_path
+    description: character varying column
+    tests: []
+  - name: ots_all_25_60_c
+    description: character varying column
+    tests: []
+  - name: ots_all_25_58_inc_3_5
+    description: character varying column
+    tests: []
+  - name: product2
+    description: character varying column
+    tests: []
+  - name: subproduct
+    description: character varying column
+    tests: []
+  - name: campaign
+    description: character varying column
+    tests: []
+  - name: week
+    description: character varying column
+    tests: []
+  - name: subscription
+    description: character varying column
+    tests: []
+  - name: card_name
+    description: character varying column
+    tests: []
+  - name: ots_all_25_55_c
+    description: character varying column
+    tests: []
+  - name: boss
+    description: character varying column
+    tests: []
+  - name: product
+    description: character varying column
+    tests: []
+  - name: ots_all_25_60
+    description: character varying column
+    tests: []
+  - name: segment
+    description: character varying column
+    tests: []
+  - name: net_rur
+    description: character varying column
+    tests: []
+  - name: клики
+    description: character varying column
+    tests: []
+  - name: показы
+    description: character varying column
+    tests: []
+  - name: age
+    description: character varying column
+    tests: []
+  - name: просмотры
+    description: character varying column
+    tests: []
+  - name: бюджет
+    description: character varying column
+    tests: []
+  - name: ta
+    description: character varying column
+    tests: []
+  - name: количество_лидов
+    description: character varying column
+    tests: []
+  - name: formatplacement
+    description: character varying column
+    tests: []
+  - name: установки
+    description: character varying column
+    tests: []
+  - name: колво_размещений
+    description: character varying column
+    tests: []
+  - name: охват
+    description: character varying column
+    tests: []
+  - name: визиты
+    description: character varying column
+    tests: []
+  - name: прослушивания
+    description: character varying column
+    tests: []
+  - name: отs
+    description: character varying column
+    tests: []
+  - name: прочтения
+    description: character varying column
+    tests: []
+  - name: otc_колво_подписчиков_канала
+    description: character varying column
+    tests: []
+  - name: отправлено
+    description: character varying column
+    tests: []
+  - name: dau
+    description: character varying column
+    tests: []
+  - name: дочитывания
+    description: character varying column
+    tests: []
+  - name: предоставляемы_файлы_2024
+    description: character varying column
+    tests: []
+  - name: условия_фильтрации
+    description: character varying column
+    tests: []
