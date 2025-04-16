@@ -1,7 +1,7 @@
 version: 2
 models:
-- name: econometrics
-  description: Data from econometrics table
+- name: эконометрика
+  description: Эконометрика 2020-2024
   columns:
   - name: end_date
     description: character varying column

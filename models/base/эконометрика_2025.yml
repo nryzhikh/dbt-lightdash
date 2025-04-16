@@ -1,8 +1,7 @@
 version: 2
 models:
-- name: econo_2025
+- name: эконометрика_2025
   description: Эконометрика 2025"
-  label: "econo_2025"
   columns:
   - name: id
     description: uuid column
