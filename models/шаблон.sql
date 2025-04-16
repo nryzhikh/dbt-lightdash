@@ -21,7 +21,7 @@ SELECT
     {{ roundv(performance('показы', ['ремаркетинг', 'remarketing']), 1000) }} AS перформанс_ремаркетинг_1000_показов,
     {{ roundv(performance('показы', ['регион', 'region']), 1000) }} AS региональный_перф_1000_показов
 FROM
-    {{ ref('econometrics_all') }} b
+    {{ ref('эконометрика_общая') }} b
 LEFT JOIN
     {{ ref('ots_all') }} o ON CAST(b.id AS TEXT) = o.id
 GROUP BY

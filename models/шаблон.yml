@@ -1,8 +1,8 @@
 version: 2
 
 models:
-  - name: vklady
-    description: "Aggregated metrics for various marketing channels"
+  - name: шаблон
+    description: "Показатели для шаблона из общей эконометрики"
     columns:
       - name: week
         description: "Week of the campaign"
