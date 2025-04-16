@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: шаблон
+  - name: вклады
     description: "Показатели для шаблона из общей эконометрики"
     columns:
       - name: _path_level_1
