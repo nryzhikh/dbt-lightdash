@@ -1,5 +1,6 @@
 SELECT
     week,
+    'cred_subscribe' as model_type,
     {{ roundv(tv('o.ots_all'), 1000) }} AS тв_1000_ots,
     {{ roundv(olv('показы'), 1000) }} AS олв_1000_показов,
     {{ roundv(audio('показы'), 1000) }} AS аудио_1000_показов,
@@ -23,6 +24,6 @@ SELECT
 FROM
     {{ ref('эконометрика_общая') }} b
 LEFT JOIN
-    {{ ref('ots_all') }} o ON CAST(b.id AS TEXT) = o.id
+    {{ ref('ots_all') }} o ON b.id::text = o.id::text
 GROUP BY
-    week
+    week, model_type

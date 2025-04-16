@@ -4,6 +4,11 @@ models:
 - name: эконометрика_2020-2024
   description: Data from econometrics table
   columns:
+  - name: id
+    description: uuid
+    meta:
+      dimension:
+        type: string
   - name: end_date
     description: character varying
     meta:
