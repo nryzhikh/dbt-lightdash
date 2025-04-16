@@ -2,17 +2,12 @@ version: 2
 
 models:
   - name: ots_all
-    description: "Aggregated OTS metrics per ID."
+    description: "Sum of all OTS metrics."
     columns:
-      - name: id
-        description: "Unique identifier."
-        tests:
-          - not_null
-          - unique
       - name: ots_all_value
         description: "Sum of all OTS metrics."
-
-  - name: blogger_ots
+        
+  - name: econometrics_all
     description: "Calculated blogger OTS per ID."
     columns:
       - name: id
@@ -24,5 +19,16 @@ models:
         meta:
           dimension:
             type: string
-      - name: blogger_ots
-        description: "Blogger OTS metric."
+
+  - name: vklady
+    description: "Calculated blogger OTS per ID."
+    columns:
+      - name: id
+        description: "Unique identifier."
+        tests:
+          - not_null
+          - unique
+      - name: channel
+        meta:
+          dimension:
+            type: string

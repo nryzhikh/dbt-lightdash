@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: raw
+    database: econometrics
+    schema: public
+    tables:
+      - name: econometrics
+        description: "Base econometrics data table"
+      - name: econometrics_2025
+        description: "2025 econometrics data table" 
