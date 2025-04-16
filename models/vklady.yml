@@ -1,0 +1,111 @@
+version: 2
+
+models:
+  - name: vklady
+    description: "Aggregated metrics for various marketing channels"
+    columns:
+      - name: week
+        description: "Week of the campaign"
+        meta:
+          dimension:
+            type: date
+      - name: тв_1000_ots
+        description: "TV impressions per 1000"
+        meta:
+          dimension:
+            type: number
+      - name: олв_1000_показов
+        description: "OLV impressions per 1000"
+        meta:
+          dimension:
+            type: number
+      - name: аудио_1000_показов
+        description: "Audio impressions per 1000"
+        meta:
+          dimension:
+            type: number
+      - name: индор_1000_ots
+        description: "Indoor impressions per 1000"
+        meta:
+          dimension:
+            type: number
+      - name: радио_1000_ots
+        description: "Radio impressions per 1000"
+        meta:
+          dimension:
+            type: number
+      - name: посевы_1000_показов
+        description: "Seeding impressions per 1000"
+        meta:
+          dimension:
+            type: number
+      - name: баннеры_1000_показов
+        description: "Banner impressions per 1000"
+        meta:
+          dimension:
+            type: number
+      - name: блогеры_1000_показов
+        description: "Blogger impressions per 1000"
+        meta:
+          dimension:
+            type: number
+      - name: smart_tv_reach
+        description: "Smart TV reach"
+        meta:
+          dimension:
+            type: number
+      - name: ooh_1000_показов
+        description: "OOH impressions per 1000"
+        meta:
+          dimension:
+            type: number
+      - name: перформанс_епк_клики
+        description: "Performance EPK clicks"
+        meta:
+          dimension:
+            type: number
+      - name: перформанс_сети_1000_показов
+        description: "Performance network impressions per 1000"
+        meta:
+          dimension:
+            type: number
+      - name: наружная_реклама_1000_показов
+        description: "Outdoor advertising impressions per 1000"
+        meta:
+          dimension:
+            type: number
+      - name: перформанс_поиск_клики
+        description: "Performance search clicks"
+        meta:
+          dimension:
+            type: number
+      - name: перформанс_мастер_1000_показов
+        description: "Performance master impressions per 1000"
+        meta:
+          dimension:
+            type: number
+      - name: перформанс_соцсети_1000_показов
+        description: "Performance social media impressions per 1000"
+        meta:
+          dimension:
+            type: number
+      - name: перформанс_мобильный_клики
+        description: "Performance mobile clicks"
+        meta:
+          dimension:
+            type: number
+      - name: фин_агр_1000_показов
+        description: "Financial aggregators impressions per 1000"
+        meta:
+          dimension:
+            type: number
+      - name: перформанс_ремаркетинг_1000_показов
+        description: "Performance remarketing impressions per 1000"
+        meta:
+          dimension:
+            type: number
+      - name: региональный_перф_1000_показов
+        description: "Regional performance impressions per 1000"
+        meta:
+          dimension:
+            type: number 
